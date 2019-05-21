@@ -1,0 +1,10 @@
+E:\Плохая папка\8сем\ВКР\theПрога\ImageAnalyzer\ImageAnalyzer\bin\Debug\ImageAnalyzer.exe.config
+E:\Плохая папка\8сем\ВКР\theПрога\ImageAnalyzer\ImageAnalyzer\bin\Debug\ImageAnalyzer.exe
+E:\Плохая папка\8сем\ВКР\theПрога\ImageAnalyzer\ImageAnalyzer\bin\Debug\ImageAnalyzer.pdb
+E:\Плохая папка\8сем\ВКР\theПрога\ImageAnalyzer\ImageAnalyzer\obj\Debug\ImageAnalyzer.csprojAssemblyReference.cache
+E:\Плохая папка\8сем\ВКР\theПрога\ImageAnalyzer\ImageAnalyzer\obj\Debug\ImageAnalyzer.Properties.Resources.resources
+E:\Плохая папка\8сем\ВКР\theПрога\ImageAnalyzer\ImageAnalyzer\obj\Debug\ImageAnalyzer.csproj.GenerateResource.cache
+E:\Плохая папка\8сем\ВКР\theПрога\ImageAnalyzer\ImageAnalyzer\obj\Debug\ImageAnalyzer.csproj.CoreCompileInputs.cache
+E:\Плохая папка\8сем\ВКР\theПрога\ImageAnalyzer\ImageAnalyzer\obj\Debug\ImageAnalyzer.exe
+E:\Плохая папка\8сем\ВКР\theПрога\ImageAnalyzer\ImageAnalyzer\obj\Debug\ImageAnalyzer.pdb
+E:\Плохая папка\8сем\ВКР\theПрога\ImageAnalyzer\ImageAnalyzer\obj\Debug\ImageAnalyzer.Form1.resources
