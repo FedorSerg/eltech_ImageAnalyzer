@@ -45,8 +45,8 @@ namespace ImageAnalyzer.SpecialClasses
             return locals;
         }
 
-        public void SetId(int id) { this.id = id; }
         public int GetId() { return id; }
+        public void SetId(int id) { this.id = id; }
 
         public void SetScale(double scale)
         {
@@ -79,7 +79,13 @@ namespace ImageAnalyzer.SpecialClasses
                     }
                 }
             }
-            return vertexList.ToArray();
+            Vertex[] vs = new Vertex[vertexList.Count];
+            for (int i = 0; i < vs.Length; i++)
+            {
+                vs[i] = vertexList[i];
+                vs[i].id = i;
+            }
+            return vs;
         }
 
         public static Vertex operator +(Vertex left, Vertex right)
@@ -102,6 +108,7 @@ namespace ImageAnalyzer.SpecialClasses
 
         public static bool operator ==(Vertex left, Vertex right)
         {
+            if ((object)left == null || (object)right == null) return false;
             return left.Equals(right);
         }
 
