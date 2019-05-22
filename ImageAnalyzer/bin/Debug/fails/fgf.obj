@@ -1,0 +1,25 @@
+# object fgf
+v  0 0 0
+MAIN: i=6 j=3 LEFT: i=45 j=3 TOP: i=6 j=42
+
+v  -39 0 0
+MAIN: i=6 j=3 LEFT: i=6 j=3 TOP: i=6 j=3
+
+v  -39 0 -39
+MAIN: i=6 j=42 LEFT: i=6 j=42 TOP: i=6 j=3
+
+v  0 0 -39
+MAIN: i=6 j=42 LEFT: i=45 j=42 TOP: i=6 j=42
+
+v  0 39 0
+MAIN: i=45 j=3 LEFT: i=45 j=3 TOP: i=45 j=42
+
+v  -39 39 0
+MAIN: i=45 j=3 LEFT: i=6 j=3 TOP: i=45 j=3
+
+v  -39 39 -39
+MAIN: i=45 j=42 LEFT: i=6 j=42 TOP: i=45 j=3
+
+v  0 39 -39
+MAIN: i=45 j=42 LEFT: i=45 j=42 TOP: i=45 j=42
+
