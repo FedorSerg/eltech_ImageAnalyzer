@@ -1,0 +1,46 @@
+# object jopa
+v  0 0 0
+MAIN: i=6 j=3 LEFT: i=45 j=3 TOP: i=6 j=42
+
+v  -40 0 0
+MAIN: i=6 j=3 LEFT: i=6 j=3 TOP: i=6 j=3
+
+v  -40 0 -40
+MAIN: i=6 j=42 LEFT: i=6 j=42 TOP: i=6 j=3
+
+v  0 0 -40
+MAIN: i=6 j=42 LEFT: i=45 j=42 TOP: i=6 j=42
+
+v  0 40 0
+MAIN: i=45 j=3 LEFT: i=45 j=3 TOP: i=45 j=42
+
+v  -40 40 0
+MAIN: i=45 j=3 LEFT: i=6 j=3 TOP: i=45 j=3
+
+v  -40 40 -40
+MAIN: i=45 j=42 LEFT: i=6 j=42 TOP: i=45 j=3
+
+v  0 40 -40
+MAIN: i=45 j=42 LEFT: i=45 j=42 TOP: i=45 j=42
+
+vn  1 1 1
+vn  1 1 1
+vn  1 1 1
+vn  1 1 1
+vn  1 1 1
+vn  1 1 1
+vn  1 1 1
+vn  1 1 1
+vn  1 1 1
+vn  1 1 1
+vn  1 1 1
+vn  1 1 1
+g jopa
+f 0//0 1//0 3//0 0//0 1//0 3//0 
+f 0//1 1//1 4//1 0//1 1//1 
+f 0//2 3//2 4//2 0//2 3//2 
+f 1//3 2//3 5//3 1//3 2//3 
+f 1//4 2//4 3//4 1//4 2//4 3//4 
+f 1//5 5//5 4//5 1//5 
+f 2//6 3//6 6//6 2//6 3//6 
+f 2//7 6//7 5//7 2//7 

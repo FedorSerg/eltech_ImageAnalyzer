@@ -30,8 +30,8 @@ namespace ImageAnalyzer.SpecialClasses
 
         public override bool Equals(object obj)
         {
-            var edge = obj as Edge;
-            return edge != null &&
+            if (obj == null) return false;
+            return obj is Edge edge &&
                    left == edge.left &&
                    right == edge.right;
         }

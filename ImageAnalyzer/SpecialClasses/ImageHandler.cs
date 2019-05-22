@@ -173,13 +173,7 @@ namespace ImageAnalyzer.SpecialClasses
                 }
             }
 
-            Vertex[] vertexArray = new Vertex[vertexList.Count];
-            for(int i = 0; i < vertexArray.Length; i++)
-            {
-                vertexArray[i].SetId(i);
-            }
-
-            return vertexArray;
+            return vertexList.ToArray();
         }
 
         private static HashSet<Edge> GetEdgesFromImage(Vertex[] vertexes)

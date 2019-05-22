@@ -1,0 +1,25 @@
+# object uty
+v  0 0 0
+MAIN: i=6 j=3 LEFT: i=45 j=3 TOP: i=6 j=42
+
+v  -40 0 0
+MAIN: i=6 j=3 LEFT: i=6 j=3 TOP: i=6 j=3
+
+v  -40 0 -40
+MAIN: i=6 j=42 LEFT: i=6 j=42 TOP: i=6 j=3
+
+v  0 0 -40
+MAIN: i=6 j=42 LEFT: i=45 j=42 TOP: i=6 j=42
+
+v  0 40 0
+MAIN: i=45 j=3 LEFT: i=45 j=3 TOP: i=45 j=42
+
+v  -40 40 0
+MAIN: i=45 j=3 LEFT: i=6 j=3 TOP: i=45 j=3
+
+v  -40 40 -40
+MAIN: i=45 j=42 LEFT: i=6 j=42 TOP: i=45 j=3
+
+v  0 40 -40
+MAIN: i=45 j=42 LEFT: i=45 j=42 TOP: i=45 j=42
+
