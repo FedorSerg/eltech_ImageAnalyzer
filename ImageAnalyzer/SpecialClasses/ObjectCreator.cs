@@ -8,9 +8,10 @@ namespace ImageAnalyzer.SpecialClasses
         private string Name;
         private string path;
         private HashSet<Edge> edges;
+        //private HashSet<Edge> antiEdges;
         private Vertex[] vertexes;
 
-        public ObjectCreator(string Name, HashSet<Edge> edges, Vertex[] vertexes)
+        public ObjectCreator(string Name, HashSet<Edge> edges, /*HashSet<Edge> antiEdges,*/ Vertex[] vertexes)
         {
             this.Name = Name;
             path = @".\" + Name + ".obj";
@@ -21,11 +22,12 @@ namespace ImageAnalyzer.SpecialClasses
                 this.vertexes[i] = vertexes[i];
             }
             this.edges = edges;
+            //this.antiEdges = antiEdges;
         }
 
         public void CreateObjFile()
         {
-            Polygon[] polgons = Polygon.GetPolygons(vertexes, edges);
+            Polygon[] polgons = Polygon.GetPolygons(vertexes, edges/*, antiEdges*/);
 
             if (!File.Exists(path))
             {

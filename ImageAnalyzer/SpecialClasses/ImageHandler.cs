@@ -10,6 +10,7 @@ namespace ImageAnalyzer.SpecialClasses
         private static Vertex[][] vertexiesFromImages = new Vertex[3][];
         private static Bitmap[] bitmaps = new Bitmap[3];
         private static HashSet<Edge> edges;
+        private static HashSet<Edge> antiEdges;
         public enum ImageType { MAIN, LEFT, TOP }
 
         private ImageHandler() { }
@@ -57,7 +58,7 @@ namespace ImageAnalyzer.SpecialClasses
                     vertexiesFromImages[2]);
 
                 new ObjectCreator(name, GetEdgesFromImage(vertexArray),
-                    vertexArray).CreateObjFile();
+                    /*GetAntiEdgesFromImage(vertexArray), */vertexArray).CreateObjFile();
             }
             else
             {
@@ -186,14 +187,27 @@ namespace ImageAnalyzer.SpecialClasses
                     if (AreLinked(vertexes[i], vertexes[j]))
                     {
                         Edge e = new Edge(i, j);
-                        if (!edges.Contains(e))
-                        {
-                            edges.Add(e);
-                        }
+                        edges.Add(e);
                     }
                 }
             }
             return edges;
+        }
+        private static HashSet<Edge> GetAntiEdgesFromImage(Vertex[] vertexes)
+        {
+            antiEdges = new HashSet<Edge>();
+            for (int i = 0; i < vertexes.Length; i++)
+            {
+                for (int j = i + 1; j < vertexes.Length; j++)
+                {
+                    if (AreAntiLinked(vertexes[i], vertexes[j]))
+                    {
+                        Edge e = new Edge(i, j);
+                        antiEdges.Add(e);
+                    }
+                }
+            }
+            return antiEdges;
         }
 
         private static bool AreLinked(Vertex one, Vertex two)
@@ -245,6 +259,56 @@ namespace ImageAnalyzer.SpecialClasses
                 }
             }
             return areLinked;
+        }
+        private static bool AreAntiLinked(Vertex one, Vertex two)
+        {
+            bool areAntiLinked = true;
+            bool shouldStop = false;
+
+            for (int type = 0; type <= 2 && !shouldStop; type++)
+            {
+                int X1 = one.GetLocalCoords()[type].GetI();
+                int X2 = two.GetLocalCoords()[type].GetI();
+                int Y1 = one.GetLocalCoords()[type].GetJ();
+                int Y2 = two.GetLocalCoords()[type].GetJ();
+
+                int minX = X1 < X2 ? X1 : X2;
+                int maxX = X2 > X1 ? X2 : X1;
+
+                for (int i = minX + 2; i < maxX - 2; i++)
+                {
+                    int j = Line(i, X1, Y1, X2, Y2);
+                    if (IsThereLineInRadius(type, i, j) || bitmaps[type].GetPixel(i, j) == ColorInfo.bgColor)
+                    {
+                        areAntiLinked = false;
+                        shouldStop = true;
+                        break;
+                    }
+                    else
+                    {
+                        areAntiLinked = true;
+                    }
+                }
+
+                int minY = Y1 < Y2 ? Y1 : Y2;
+                int maxY = Y2 > Y1 ? Y2 : Y1;
+
+                for (int i = minY + 2; i < maxY - 2; i++)
+                {
+                    int j = Line(i, Y1, X1, Y2, X2);
+                    if (IsThereLineInRadius(type, j, i) || bitmaps[type].GetPixel(j, i) == ColorInfo.bgColor)
+                    {
+                        areAntiLinked = false;
+                        shouldStop = true;
+                        break;
+                    }
+                    else
+                    {
+                        areAntiLinked = true;
+                    }
+                }
+            }
+            return areAntiLinked;
         }
 
         private static bool IsThereLineInRadius(int num, int a, int b)
