@@ -23,11 +23,11 @@ namespace ImageAnalyzer.SpecialClasses
         {
             polygonCounter++;
         }
-        public bool IsRelevant()
+        /*public bool IsRelevant()
         {
             return polygonCounter < 2 ? true : false;
         }
-
+        //*/
         public override bool Equals(object obj)
         {
             if (obj == null) return false;

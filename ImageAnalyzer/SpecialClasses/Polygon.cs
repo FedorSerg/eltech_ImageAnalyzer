@@ -21,20 +21,25 @@ namespace ImageAnalyzer.SpecialClasses
             return vertexNums;
         }
 
-        public static Polygon[] GetPolygons(Vertex[] vertexArray, HashSet<Edge> edges)
+        public static Polygon[] GetPolygons(Vertex[] vertexArray, HashSet<Edge> edges/*, HashSet<Edge> antiEdges*/)
         {
             List<Polygon> polygons = new List<Polygon>();
+
             List<Edge> edgeList = new List<Edge>();
             foreach (Edge edge in edges) edgeList.Add(edge);
 
-            while (IsItStillRelevant(edgeList))
+            //List<Edge> antiEdgeList = new List<Edge>();
+            //foreach (Edge edge in antiEdges) antiEdgeList.Add(edge);
+            bool isItStillRelevant = true;
+            while (isItStillRelevant/*IsItStillRelevant(edgeList)*/)
             {
+                isItStillRelevant = false;
                 for (int i = 0; i < edgeList.Count; i++)
                 {
                     for (int j = i + 1; j < edgeList.Count; j++)
                     {
-                        if (edgeList[i].IsRelevant() && edgeList[j].IsRelevant())
-                        {
+                        //if (edgeList[i].IsRelevant() && edgeList[j].IsRelevant())
+                        //{
                             if (edgeList[i].left == edgeList[j].left ||
                                 edgeList[i].left == edgeList[j].right)
                             {
@@ -80,12 +85,13 @@ namespace ImageAnalyzer.SpecialClasses
                                     }
                                 }
                                 Polygon newPolygon = new Polygon(baseVertexId.ToArray());
-                                if (!polygons.Contains(newPolygon) /*&& no antiEdge*/)
+                                if (!polygons.Contains(newPolygon))
                                 {
                                     polygons.Add(newPolygon);
+                                    isItStillRelevant = true;
                                 }
                             }
-                        }
+                        //}
                     }
                 }
             }
@@ -100,14 +106,14 @@ namespace ImageAnalyzer.SpecialClasses
                 (v.z - a.z) * ((b.x - a.x) * (c.y - a.y) - (c.x - a.x) * (b.y - a.y));
         }
 
-        private static bool IsItStillRelevant(List<Edge> edgeList)
+        /*private static bool IsItStillRelevant(List<Edge> edgeList)
         {
             foreach (Edge e in edgeList)
             {
                 if (!e.IsRelevant()) return false;
             }
             return true;
-        }
+        }//*/
 
         public override bool Equals(object obj)
         {
